@@ -31,7 +31,7 @@ Constraints:
 
 **Result: $2,988 per week.** All 233 barrels generated are shipped. Orangeburg and Florence run at full capacity (65 and 80 barrels); Macon absorbs 88 against a 105-barrel limit.
 
-![Part 1A solved model above, Solver parameters and constraint list below](images/part1a_model_and_solver.png)
+![Part 1A solved model above, Solver parameters and constraint list below](part1a_model_and_solver.png)
 
 ### Part 1B: Transshipment
 
@@ -49,11 +49,11 @@ Constraints:
 - Site capacity: `C34:C36 <= E34:E36`
 - Non-negativity: `B16:J24 >= 0`
 
-![Part 1B Solver parameters on the 9x9 route matrix](images/part1b_solver_parameters.jpg)
+![Part 1B Solver parameters on the 9x9 route matrix](part1b_solver_parameters.jpg)
 
 **Result: $2,674 per week, a saving of $314 (10.5%) against direct shipping.**
 
-![Part 1B solved model with flow conservation status column showing all constraints Met and OK](images/part1b_solved_model.jpg)
+![Part 1B solved model with flow conservation status column showing all constraints Met and OK](part1b_solved_model.jpg)
 
 Optimal routes:
 
@@ -74,7 +74,7 @@ The saving comes from consolidation. Denver sends its full 45 barrels to Morgant
 
 Minimize portfolio variance across six asset classes subject to a minimum expected return of 11%, using the full 6x6 variance-covariance matrix.
 
-![Expected returns and the 6x6 variance-covariance matrix](images/part2_covariance_matrix.jpg)
+![Expected returns and the 6x6 variance-covariance matrix](part2_covariance_matrix.jpg)
 
 **Objective formula** (portfolio variance, `B27`), expanding the quadratic form to include all fifteen covariance cross-terms:
 
@@ -88,7 +88,7 @@ Minimize portfolio variance across six asset classes subject to a minimum expect
 
 **Portfolio return** (`B25`): `=B18*B5+B19*C5+B20*D5+B21*E5+B22*F5+B23*G5`
 
-![Model section with the variance formula visible in the formula bar](images/part2_variance_formula.jpg)
+![Model section with the variance formula visible in the formula bar](part2_variance_formula.jpg)
 
 **Solver setup:** minimize `$B$27`, changing `B18:B23`, method GRG Nonlinear.
 
@@ -99,7 +99,7 @@ Constraints:
 
 **Result: minimum variance of 0.000736 at exactly 11.00% return.**
 
-![Solver parameters and the solved allocation at an 11% return target](images/part2_solver_parameters.jpg)
+![Solver parameters and the solved allocation at an 11% return target](part2_solver_parameters.jpg)
 
 | Asset | Expected return | Optimal allocation |
 |---|---|---|
@@ -127,9 +127,9 @@ Solver was re-run across eight target returns to trace the risk-return boundary.
 | 13.0% | 0.002098 |
 | 13.5% | 0.003496 |
 
-![Efficient frontier data table recorded alongside the model](images/part2_efficient_frontier_table.jpg)
+![Efficient frontier data table recorded alongside the model](part2_efficient_frontier_table.jpg)
 
-![Efficient frontier scatter chart, expected return against portfolio variance](images/efficient_frontier_chart.jpg)
+![Efficient frontier scatter chart, expected return against portfolio variance](efficient_frontier_chart.jpg)
 
 The curve is convex. Moving from 10% to 10.5% return costs 0.000089 in added variance; moving from 13% to 13.5% costs 0.001398, roughly sixteen times as much for the same half point of return. Risk does not scale linearly with ambition, and the penalty accelerates sharply at the upper end.
 
@@ -140,7 +140,7 @@ For a highly risk-averse investor, the 10% target at 0.000514 variance is the de
 | File | Purpose |
 |---|---|
 | `optimization_models.xlsx` | Workbook with three sheets: Part 1A, Part 1B, Part 2 |
-| `images/` | Screenshots of model layouts, Solver dialogs, and the efficient frontier chart |
+| `*.png`, `*.jpg` | Screenshots of model layouts, Solver dialogs, and the efficient frontier chart |
 
 ## Verification
 
